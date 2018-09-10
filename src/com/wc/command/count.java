@@ -36,7 +36,7 @@ public class count{
         	if (type.equals("-w")||type.equals("-all")) { 
         		// 根据切割的词的数量计算词的数量，排除多余的空格误被计算的情况
         		// 把中英文标点符号都替换为“”
-        		String s = strCount.split(" ")[i].replaceAll("\\p{P}", "");
+        		String s = strCount.split(" ")[i].replaceAll("[\\p{P}+~$`^=|<>～｀＄＾＋＝｜＜＞￥×]" , "");
         		boolean word = !s.equals("");
                 if(word) {
                 	countWord++;
