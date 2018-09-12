@@ -191,30 +191,33 @@ public static void foundFilePath(String path, String fileName) throws IOExceptio
 
 **-a  返回更复杂的数据（代码行 / 空行 / 注释行）**
 
-// 计算特殊行的数量
-    public static void pattern(String line) {
-        String regxNodeBegin = "\\s*/\\*.*";
-        String regxNodeEnd = ".*\\*/\\s*";
-        String regx = "//.*";
-        String regxSpace = "\\s*";
-        if(line.matches(regxNodeBegin) && line.matches(regxNodeEnd)){
-            ++cntNode;
-            return ;
-        }
-        if(line.matches(regxNodeBegin)){
-            ++cntNode;
-            flagNode = true;
-        } else if(line.matches(regxNodeEnd)){
-            ++cntNode;
-            flagNode = false;
-        } else if(line.matches(regxSpace))
-            ++cntSpace;
-        else if(line.matches(regx))
-            ++cntNode;
-        else if(flagNode)
-            ++cntNode;
-        else ++cntCode;
-    }
+
+	// 计算特殊行的数量
+	    public static void pattern(String line) {
+	        String regxNodeBegin = "\\s*/\\*.*";
+	        String regxNodeEnd = ".*\\*/\\s*";
+	        String regx = "//.*";
+	        String regxSpace = "\\s*";
+	        if(line.matches(regxNodeBegin) && line.matches(regxNodeEnd)){
+	            ++cntNode;
+	            return ;
+	        }
+	        if(line.matches(regxNodeBegin)){
+	            ++cntNode;
+	            flagNode = true;
+	        } else if(line.matches(regxNodeEnd)){
+	            ++cntNode;
+	            flagNode = false;
+	        } else if(line.matches(regxSpace))
+	            ++cntSpace;
+	        else if(line.matches(regx))
+	            ++cntNode;
+	        else if(flagNode)
+	            ++cntNode;
+	        else ++cntCode;
+	    }
+ 
+
  
 
  
